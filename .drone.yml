@@ -7,11 +7,9 @@ steps:
   image: plugins/ecr
   region: us-east-1
   registry: 933375035704.dkr.ecr.us-east-1.amazonaws.com
-  repo: getip-drone
+  repo: 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-drone
   environment:
       AWS_ACCESS_KEY_ID:
         from_secret: AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY:
         from_secret: AWS_SECRET_ACCESS_KEY
-  #dockerfile: ./Dockerfile
-  tags: latest
