@@ -8,11 +8,11 @@ steps:
   settings:
     registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
     repo: getip-drone
-    create_repository: true
+    region: us-east-1
     access_key:
         from_secret: AWS_ACCESS_KEY_ID
     secret_key:
-        from_secret: AWS_SECRET_ACCESS_KEYe
+        from_secret: AWS_SECRET_ACCESS_KEY
   environment:
       AWS_ECR_PREFIX:
         from_secret: AWS_ECR_PREFIX
