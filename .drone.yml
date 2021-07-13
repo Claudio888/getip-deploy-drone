@@ -7,8 +7,7 @@ steps:
   image: plugins/ecr
   region: us-east-1
   registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
-  repo: getip-drone
-  create_repository: true
+  repo: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com/getip-drone
   environment:
       AWS_ACCESS_KEY_ID:
         from_secret: AWS_ACCESS_KEY_ID
