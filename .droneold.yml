@@ -3,16 +3,17 @@ type: docker
 name: default
 
 steps:
-  - name: pushimage
-    image: plugins/docker
+- name: publish
+  image: plugins/docker
   settings:
-    username:
-      from_secret: AWS_ACCESS_KEY_ID
-    password:
-      from_secret: AWS_SECRET_ACCESS_KEY
+    access_key:
+        from_secret: AWS_ACCESS_KEY_ID
+    secret_key:
+        from_secret: AWS_SECRET_ACCESS_KEY
     registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
     repo: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com/getip-drone
     region: us-east-1
   environment:
       AWS_ECR_PREFIX:
         from_secret: AWS_ECR_PREFIX
+      HOME: "/tmp"
