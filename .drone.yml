@@ -6,9 +6,11 @@ steps:
 - name: publish
   image: plugins/ecr
   region: us-east-1
-  #registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
-  #repo: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com/teste
-  force_tag: false
+  access_key: $AWS_ACCESS_KEY_ID  
+  secret_key: $AWS_SECRET_ACCESS_KEY
+  registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
+  repo: teste
+  force_tag: true
   create_repository: true
   environment:
       AWS_ACCESS_KEY_ID:
