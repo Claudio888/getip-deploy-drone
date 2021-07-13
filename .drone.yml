@@ -10,10 +10,10 @@ steps:
         from_secret: AWS_ACCESS_KEY_ID
     secret_key:
         from_secret: AWS_SECRET_ACCESS_KEY
-    registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
-    repo: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com/getip-drone
+    registry: 933375035704.dkr.ecr.us-east-1.amazonaws.com
+    repo: 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-drone
     region: us-east-1
     debug: true
-  environment:
-      AWS_ECR_PREFIX:
-        from_secret: AWS_ECR_PREFIX
+  #environment:
+      #AWS_ECR_PREFIX:
+        #from_secret: AWS_ECR_PREFIX
