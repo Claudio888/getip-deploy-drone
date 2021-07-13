@@ -3,8 +3,8 @@ type: docker
 name: default
 
 steps:
-  - name: pushimage
-    image: plugins/docker
+- name: pushimage
+  image: plugins/docker
   settings:
     username:
       from_secret: AWS_ACCESS_KEY_ID
