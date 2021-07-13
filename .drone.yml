@@ -11,7 +11,7 @@ steps:
     password:
       from_secret: AWS_SECRET_ACCESS_KEY
     registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
-    repo: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com/getip-drone
+    repo: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com/teste
     region: us-east-1
   environment:
       AWS_ECR_PREFIX:
