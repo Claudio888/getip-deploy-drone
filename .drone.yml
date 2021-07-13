@@ -7,7 +7,7 @@ steps:
   image: plugins/ecr
   region: us-east-1
   registry: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com
-  repo: teste
+  repo: $AWS_ECR_PREFIX.dkr.ecr.us-east-1.amazonaws.com/teste
   create_repository: true
   environment:
       AWS_ACCESS_KEY_ID:
@@ -16,5 +16,3 @@ steps:
         from_secret: AWS_SECRET_ACCESS_KEY
       AWS_ECR_PREFIX:
         from_secret: AWS_ECR_PREFIX
-  tags:
-    - latest
