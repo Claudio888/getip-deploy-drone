@@ -16,3 +16,4 @@ steps:
   environment:
       AWS_ECR_PREFIX:
         from_secret: AWS_ECR_PREFIX
+      HOME: "/tmp"
