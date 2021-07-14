@@ -37,7 +37,7 @@ steps:
   commands:
   - whoami
   - apt-get update
-  - apt-get install ssh
+  - apt-get install -y ssh
   - ls -larth
   - export ip=`cat ip_address`
   - echo $ip
