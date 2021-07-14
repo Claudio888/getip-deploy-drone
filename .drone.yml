@@ -43,9 +43,9 @@ steps:
   - echo $ip
   - echo $${SSH_AWS_EC2} >> aws_ec2
   - cat aws_ec2
-  - echo $${SSH_AWS_EC2}
-  - ssh -tt -i $${SSH_AWS_EC2} ubuntu@$ip
-  - touch teste
+  - ls -larth 
+  - ssh -v -tt -i aws_ec2 ubuntu@$ip
+  - touch testes
   - pwd
   environment:
       AWS_ACCESS_KEY_ID:
