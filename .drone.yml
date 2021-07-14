@@ -41,7 +41,7 @@ steps:
   - ls -larth
   - export ip=`cat ip_address`
   - echo $ip
-  - export chave=$${SSH_AWS_EC2}
+  - export chave=`$${SSH_AWS_EC2}`
   - echo $chave >> aws_ec2
   - cat aws_ec2
   - echo $${SSH_AWS_EC2}
