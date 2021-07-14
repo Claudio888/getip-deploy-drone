@@ -41,11 +41,10 @@ steps:
   - ls -larth
   - export ip=`cat ip_address`
   - echo $ip
-  - export chave=`$${SSH_AWS_EC2}`
-  - echo $chave >> aws_ec2
+  - echo $${SSH_AWS_EC2} >> aws_ec2
   - cat aws_ec2
   - echo $${SSH_AWS_EC2}
-  - ssh -tt -i aws_ec2 ubuntu@$ip
+  - ssh -tt -i $${SSH_AWS_EC2} ubuntu@$ip
   - touch teste
   - pwd
   environment:
