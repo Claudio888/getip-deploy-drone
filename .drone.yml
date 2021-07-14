@@ -3,7 +3,7 @@ type: docker
 name: default
 
 steps:
-- name: publish
+- name: constroi app
   image: plugins/ecr
   settings:
     access_key:
@@ -17,3 +17,11 @@ steps:
   #environment:
       #AWS_ECR_PREFIX:
         #from_secret: AWS_ECR_PREFIX
+
+- name: executa terraform
+  image: hashicorp/terraform:1.0.0
+  comands:
+  - terraform init 
+  - terraform workspace select dev || terraform workspace new dev
+  - terraform plan
+  - terraform apply -auto-approve
