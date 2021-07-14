@@ -15,6 +15,7 @@ module "instancia" {
   name = "Get-IP-iac"
   enable_sg = true
   env_prefix = "dev"
+  ingress_ports = [22,8090]
 }
 
 output "ip_address" {
