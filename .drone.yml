@@ -35,6 +35,7 @@ steps:
 - name: deploy 
   image: ubuntu
   commands:
+  - ls -larth
   - export ip=`cat ip_address`
   - echo $ip
   - echo ${SSH_AWS_EC2} >> aws_ec2.pub
