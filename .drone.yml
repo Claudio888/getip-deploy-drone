@@ -41,12 +41,13 @@ steps:
   - ls -larth
   - export ip=`cat ip_address`
   - echo $ip
-  - echo $${SSH_AWS_EC2} >> aws_ec2.pub
-  - cat aws_ec2.pub
+  - echo $${SSH_AWS_EC2} >> aws_ec2
+  - cat aws_ec2
   - ls -larth
   - echo $${SSH_AWS_EC2}
-  - ssh -tt -i aws_ec2.pub ubuntu@$ip
+  - ssh -tt -i aws_ec2 ubuntu@$ip
   - touch teste
+  - pwd
   environment:
       AWS_ACCESS_KEY_ID:
         from_secret: AWS_ACCESS_KEY_ID
