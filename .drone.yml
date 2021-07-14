@@ -21,7 +21,7 @@ steps:
 - name: executa terraform
   image: hashicorp/terraform:1.0.0
   comands:
-  - terraform init 
-  - terraform workspace select dev || terraform workspace new dev
-  - terraform plan
-  - terraform apply -auto-approve
+  - init 
+  - workspace select dev || workspace new dev
+  - plan
+  - apply -auto-approve
