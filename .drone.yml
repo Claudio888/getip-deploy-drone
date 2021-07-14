@@ -25,9 +25,27 @@ steps:
   - terraform workspace select dev || terraform workspace new dev
   - terraform plan
   - terraform apply -auto-approve
+  - terraform output -raw ip_address >> ip_address
   environment:
       AWS_ACCESS_KEY_ID:
         from_secret: AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY:  
         from_secret: AWS_SECRET_ACCESS_KEY
+
+- name: deploy 
+  image: ubuntu
+  commands:
+  - ip = `cat ip_address`
+  - echo $ip
+  - echo ${SSH_AWS_EC2} >> aws_ec2.pub
+  - cat aws_ec2.pub
+  - ssh -i aws_ec2.pub ubuntu@$ip
+  - touch teste
+  environment:
+      AWS_ACCESS_KEY_ID:
+        from_secret: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY:  
+        from_secret: AWS_SECRET_ACCESS_KEY
+      SSH_AWS_EC2:
+        from_secret: SSH_AWS_EC2
 
