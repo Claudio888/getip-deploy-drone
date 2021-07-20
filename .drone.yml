@@ -42,7 +42,7 @@ steps:
     username: ubuntu
     port: 22
     key:
-    from_secret: SSH_AWS_EC2
+      from_secret: SSH_AWS_EC2
     script:
       - sudo aws ecr get-login-password | docker login --username AWS --password-stdin 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-images
       - sudo docker rm -f getipv2 || true
