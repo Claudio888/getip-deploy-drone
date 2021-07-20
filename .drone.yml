@@ -38,7 +38,7 @@ steps:
   #- export ip=`cat ip_address`
   #- echo $ip
   settings:
-    host: 3.235.240.36
+    host: 100.26.210.122
     username: ubuntu
     port: 22
     key:
