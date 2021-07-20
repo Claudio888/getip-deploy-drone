@@ -44,7 +44,7 @@ steps:
     key:
       from_secret: SSH_AWS_EC2
     script:
-      - sudo aws ecr get-login-password | docker login --username AWS --password-stdin 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-drone:latest
+      - sudo aws ecr get-login-password | docker login --username AWS --password-stdin 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-drone
       - sudo docker rm -f getipv2 || true
       - sudo docker run -d --name getipv2 -p 8090:8090 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-drone:latest
   environment:
