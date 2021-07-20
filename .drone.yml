@@ -34,19 +34,19 @@ steps:
         
 - name: deployment
   image: appleboy/drone-ssh
-  commands:
-  - export ip=`cat ip_address`
-  - echo $ip
+  #commands:
+  #- export ip=`cat ip_address`
+  #- echo $ip
   settings:
-    host: ${ip}
+    host: 3.235.240.36
     username: ubuntu
     port: 22
     key:
     from_secret: SSH_AWS_EC2
     script:
-      - echo hello
-      - echo world
-      - touch teste
+      - sudo aws ecr get-login-password | docker login --username AWS --password-stdin 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-images
+      - sudo docker rm -f getipv2 || true
+      - sudo docker run -d --name getipv2 -p 8090:8090 933375035704.dkr.ecr.us-east-1.amazonaws.com/getip-drone:latest
   environment:
       AWS_ACCESS_KEY_ID:
         from_secret: AWS_ACCESS_KEY_ID
