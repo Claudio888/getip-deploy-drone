@@ -43,8 +43,8 @@ steps:
   - echo $ip
   - echo $${SSH_AWS_EC2} >> aws_ec2
   - cat aws_ec2
+  - chmod 400 aws_ec2
   - ssh-keygen -y -e -f aws_ec2
-  - ls -la /dev/tty
   - ssh -vvv -tt -i aws_ec2 ubuntu@$ip "whoami"
   - ssh -vvv -tt -i aws_ec2 ubuntu@$ip "touch teste"
   environment:
