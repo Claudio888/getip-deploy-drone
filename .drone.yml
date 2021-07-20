@@ -31,22 +31,22 @@ steps:
         from_secret: AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY:  
         from_secret: AWS_SECRET_ACCESS_KEY
-
-- name: deploy 
-  image: ubuntu
+        
+- name: deployment
+  image: appleboy/drone-ssh
   commands:
-  - whoami
-  - apt-get update
-  - apt-get install -y ssh
-  - ls -larth
   - export ip=`cat ip_address`
   - echo $ip
-  #- echo $${SSH_AWS_EC2} >> aws_ec2
-  #- cat aws_ec2
-  #- chmod 400 aws_ec2
-  #-ssh-keygen -y -e -f aws_ec2
-  - echo $${SSH_AWS_EC2} | ssh -vvv -i /dev/stdin  ubuntu@$ip "whoami"
-  #- ssh -vvv -tt -i aws_ec2 ubuntu@$ip "touch teste"
+  settings:
+    host: ${ip}
+    username: ubuntu
+    port: 22
+    key:
+    from_secret: SSH_AWS_EC2
+    script:
+      - echo hello
+      - echo world
+      - touch teste
   environment:
       AWS_ACCESS_KEY_ID:
         from_secret: AWS_ACCESS_KEY_ID
@@ -54,4 +54,3 @@ steps:
         from_secret: AWS_SECRET_ACCESS_KEY
       SSH_AWS_EC2:
         from_secret: SSH_AWS_EC2
-
