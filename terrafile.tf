@@ -11,7 +11,7 @@ terraform {
 }
 
 module "instancia" {
-  source = "github.com/Claudio888/terraform2pipeline.git?ref=main"
+  source = "github.com/Claudio888/terraform2pipeline.git?ref=1.0"
   name = "Get-IP-iac"
   enable_sg = true
   env_prefix = "dev"
